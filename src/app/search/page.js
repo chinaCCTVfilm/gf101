@@ -1,0 +1,1 @@
+"use client";import {useState} from "react";import {searchMovie} from "@/lib/api";export default function Search(){const[q,setQ]=useState("");const[r,setR]=useState([]);return(<div><input onChange={e=>setQ(e.target.value)}/><button onClick={async()=>{const d=await searchMovie(q);setR(d.results)}}>搜索</button>{r.map(m=>(<div key={m.id}>{m.title}</div>))}</div>)}
